@@ -11,10 +11,12 @@ namespace NPGeek.Web.Controllers
     public class SurveyController : Controller
     {
         IParkDAL parkDAL;
+        ISurveyDAL surveyDAL;
 
-        public SurveyController(IParkDAL parkDAL)
+        public SurveyController(IParkDAL parkDAL, ISurveyDAL surveyDAL)
         {
             this.parkDAL = parkDAL;
+            this.surveyDAL = surveyDAL;
         }
 
 
@@ -30,10 +32,13 @@ namespace NPGeek.Web.Controllers
         [HttpPost]
         public ActionResult Index(Survey survey)
         {
+
             if (ModelState.IsValid)
             {
+                surveyDAL.AddSurveyResultToDB(survey);
                 return RedirectToAction("SurveyResult");
             }
+
             List<NationalPark> parks = parkDAL.GetAllParks();
             Survey newSurvey = new Survey(parks)
             {
@@ -42,13 +47,14 @@ namespace NPGeek.Web.Controllers
                 State = survey.State,
                 ActivityLevel = survey.ActivityLevel
             };
+
             return View("Index", newSurvey);
-            
         }
 
         public ActionResult SurveyResult()
         {
-            return View();
+            List<SurveyResult> results = surveyDAL.GetAllSurveys();
+            return View("SurveyResult", results);
         }
     }
 }

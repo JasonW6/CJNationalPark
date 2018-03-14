@@ -133,14 +133,17 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SurveyController.cs" />
     <Compile Include="DAL\IParkDAL.cs" />
+    <Compile Include="DAL\ISurveyDAL.cs" />
     <Compile Include="DAL\IWeatherDAL.cs" />
     <Compile Include="DAL\ParkSqlDAL.cs" />
+    <Compile Include="DAL\SurveySqlDAL.cs" />
     <Compile Include="DAL\WeatherSqlDAL.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\NationalPark.cs" />
     <Compile Include="Models\Survey.cs" />
+    <Compile Include="Models\SurveyResult.cs" />
     <Compile Include="Models\Weather.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
