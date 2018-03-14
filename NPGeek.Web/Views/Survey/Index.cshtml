@@ -1,0 +1,44 @@
+﻿@model NPGeek.Web.Models.Survey
+@{
+    ViewBag.Title = "Survey";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1>National Park Survey</h1>
+
+<form method="post" action="@Url.Action("Index", "Survey")">
+
+    <p class="survey-item">
+        <span>Favorite National Park</span>
+        @Html.DropDownListFor(m => m.ParkCode, Model.Parks)
+        @Html.ValidationMessageFor(d => d.ParkCode)
+    </p>
+    <p class="survey-item">
+        <span>Your Email</span>
+        @Html.TextBoxFor(t => t.EmailAddress)
+        @Html.ValidationMessageFor(d => d.EmailAddress)
+    </p>
+    <p class="survey-item">
+        <span>State of Residence</span>
+        @Html.DropDownListFor(m => m.State, NPGeek.Web.Models.Survey.States)
+        @Html.ValidationMessageFor(d => d.State)
+    </p>
+    <p class="survey-item">
+        <span>Your Activity Level</span>
+        @Html.RadioButtonFor(r => r.ActivityLevel, "inactive")<span>Inactive</span>
+        @Html.RadioButtonFor(r => r.ActivityLevel, "sedentary")<span>Sedentary</span>
+        @Html.RadioButtonFor(r => r.ActivityLevel, "active")<span>Active</span>
+        @Html.RadioButtonFor(r => r.ActivityLevel, "hyperactive")<span>Hyperactive</span>
+        @Html.ValidationMessageFor(d => d.ActivityLevel)
+    </p>
+    <button>Submit</button>
+
+
+
+
+
+
+
+
+</form>
