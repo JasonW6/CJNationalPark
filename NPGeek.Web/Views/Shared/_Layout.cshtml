@@ -10,7 +10,33 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
 </head>
+
 <body>
+    <header>
+        <div>
+            <img id="logo" src="~/Content/img/logo.png" />
+
+        </div>
+        <div>
+            <ul>
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>@Html.ActionLink("Survey", "Index", "Survey")</li>
+
+
+            </ul>
+
+        </div>
+
+    </header>
+
     @RenderBody()
+
+    <footer>
+        <img src="~/Content/img/geek.png" />
+        <span>&copy; @DateTime.Now.Year Craig and Jason &lt;TEAM 5&gt;</span>
+        <img src="~/Content/img/scenery.png" />
+
+    </footer>
 </body>
+
 </html>
