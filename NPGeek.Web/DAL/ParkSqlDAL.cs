@@ -27,7 +27,7 @@ namespace NPGeek.Web.DAL
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand(@"select * from park", conn);
+                    SqlCommand cmd = new SqlCommand(@"SELECT * FROM park ORDER BY parkName", conn);
 
                     SqlDataReader reader = cmd.ExecuteReader();
 
@@ -50,29 +50,54 @@ namespace NPGeek.Web.DAL
 
         public NationalPark GetParkByParkCode(string parkCode)
         {
-            throw new NotImplementedException();
+            NationalPark nationalPark;
+
+            try
+            {
+                using(SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(@"SELECT TOP 1 * FROM park WHERE parkCode = @parkCode ORDER BY parkName", conn);
+                    cmd.Parameters.AddWithValue("@parkCode", parkCode);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    reader.Read();
+                    
+                    nationalPark = MapSqlRowToPark(reader);
+                }
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine(e.Message);
+                throw;
+            }
+
+            return nationalPark;
         }
 
 
         private NationalPark MapSqlRowToPark(SqlDataReader reader)
         {
 
-            NationalPark nationalPark = new NationalPark();
-            nationalPark.ParkCode = Convert.ToString(reader["parkCode"]);
-            nationalPark.ParkName = Convert.ToString(reader["parkName"]);
-            nationalPark.State = Convert.ToString(reader["state"]);
-            nationalPark.Acreage = Convert.ToInt32(reader["acreage"]);
-            nationalPark.Elevation = Convert.ToInt32(reader["elevationInFeet"]);
-            nationalPark.MilesOfTrail = Convert.ToInt32(reader["milesOfTrail"]);
-            nationalPark.NumberOfCampsites = Convert.ToInt32(reader["numberOfCampsites"]);
-            nationalPark.Climate = Convert.ToString(reader["climate"]);
-            nationalPark.YearFounded = Convert.ToInt32(reader["yearFounded"]);
-            nationalPark.AnnualVisitorCount = Convert.ToInt32(reader["annualVisitorCount"]);
-            nationalPark.InspirationalQuote = Convert.ToString(reader["inspirationalQuote"]);
-            nationalPark.InspirationalQuoteSource = Convert.ToString(reader["inspirationalQuoteSource"]);
-            nationalPark.ParkDecription = Convert.ToString(reader["parkDescription"]);
-            nationalPark.EntryFee = Convert.ToInt32(reader["entryFee"]);
-            nationalPark.NumberOfAnimalSpecies = Convert.ToInt32(reader["numberOfAnimalSpecies"]);
+            NationalPark nationalPark = new NationalPark()
+            {
+                ParkCode = Convert.ToString(reader["parkCode"]),
+                ParkName = Convert.ToString(reader["parkName"]),
+                State = Convert.ToString(reader["state"]),
+                Acreage = Convert.ToInt32(reader["acreage"]),
+                Elevation = Convert.ToInt32(reader["elevationInFeet"]),
+                MilesOfTrail = Convert.ToInt32(reader["milesOfTrail"]),
+                NumberOfCampsites = Convert.ToInt32(reader["numberOfCampsites"]),
+                Climate = Convert.ToString(reader["climate"]),
+                YearFounded = Convert.ToInt32(reader["yearFounded"]),
+                AnnualVisitorCount = Convert.ToInt32(reader["annualVisitorCount"]),
+                InspirationalQuote = Convert.ToString(reader["inspirationalQuote"]),
+                InspirationalQuoteSource = Convert.ToString(reader["inspirationalQuoteSource"]),
+                ParkDecription = Convert.ToString(reader["parkDescription"]),
+                EntryFee = Convert.ToInt32(reader["entryFee"]),
+                NumberOfAnimalSpecies = Convert.ToInt32(reader["numberOfAnimalSpecies"])
+            };
 
             return nationalPark;
         }

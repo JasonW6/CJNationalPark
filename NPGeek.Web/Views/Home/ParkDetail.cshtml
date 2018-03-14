@@ -1,0 +1,63 @@
+﻿@model NPGeek.Web.Models.NationalPark
+
+@{
+    ViewBag.Title = $"{Model.ParkName} - Park Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ParkDetail</h2>
+
+<img class="parkImage" src="~/Content/img/parks/@(Model.ParkCode.ToLower()).jpg" />
+
+<div class="parkinfo">
+    <h2>@Model.ParkName</h2>
+    <p>@Model.ParkDecription</p>
+    <p>
+        <span>Acreage:</span>
+        <span>@Model.Acreage</span>
+    </p>
+    <p>
+        <span>Annual Visitor Count:</span>
+        <span>@Model.AnnualVisitorCount</span>
+    </p>
+    <p>
+        <span>Climate:</span>
+        <span>@Model.Climate</span>
+    </p>
+    <p>
+        <span>Elevation:</span>
+        <span>@Model.Elevation</span>
+    </p>
+    <p>
+        <span>Entry Fee:</span>
+        <span>@Model.EntryFee</span>
+    </p>
+    <p>
+        @Model.InspirationalQuote -
+        @Model.InspirationalQuoteSource
+    </p>
+    <p>
+        <span>Miles of Trail:</span>
+        <span>@Model.MilesOfTrail</span>
+    </p>
+    <p>
+        <span>Number of Animal Species:</span>
+        <span>@Model.NumberOfAnimalSpecies</span>
+    </p>
+    <p>
+        <span>Number of Campsites:</span>
+        <span>@Model.NumberOfCampsites</span>
+    </p>
+    <p>
+        <span>State:</span>
+        <span>@Model.State</span>
+    </p>
+    <p>
+        <span>Year Founded:</span>
+        <span>@Model.YearFounded</span>
+    </p>
+</div>
+
+<div>
+    @Html.Action("Weather", "Home", new { id = Model.ParkCode })
+</div>

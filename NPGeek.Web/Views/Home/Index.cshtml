@@ -1,6 +1,6 @@
 ﻿@model List<NPGeek.Web.Models.NationalPark>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "National Parks";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -10,12 +10,7 @@
     <img class="parkImage" src="~/Content/img/parks/@(park.ParkCode.ToLower()).jpg" />
 
     <div class="parkinfo">
-       <h2>@park.ParkName</h2> 
-       <p>@park.ParkDecription</p>
-
-
-
-
-
+        <h2><a href="@Url.Action("ParkDetail", "Home", new { id = park.ParkCode })">@park.ParkName</a></h2>
+        <p>@park.ParkDecription</p>
     </div>
 }

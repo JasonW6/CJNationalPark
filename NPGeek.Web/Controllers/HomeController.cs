@@ -11,19 +11,32 @@ namespace NPGeek.Web.Controllers
     public class HomeController : Controller
     {
         IParkDAL parkDAL;
+        IWeatherDAL weatherDAL;
 
-        public HomeController(IParkDAL parkDAL)
+        public HomeController(IParkDAL parkDAL, IWeatherDAL weatherDAL)
         {
             this.parkDAL = parkDAL;
+            this.weatherDAL = weatherDAL;
         }
-
-
-        // GET: Home
+        
         public ActionResult Index()
         {
             List<NationalPark> parks = parkDAL.GetAllParks();
             
             return View("Index", parks);
+        }
+
+        public ActionResult ParkDetail(string id)
+        {
+            NationalPark park = parkDAL.GetParkByParkCode(id);
+
+            return View("ParkDetail", park);
+        }
+
+        public ActionResult Weather(string id)
+        {
+            List<Weather> fiveDayWeather = weatherDAL.GetFiveDayWeatherByParkCode(id);
+            return PartialView("Weather", fiveDayWeather);
         }
     }
 }

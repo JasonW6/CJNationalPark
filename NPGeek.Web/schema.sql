@@ -1,9 +1,9 @@
 ﻿-- Includes the create database and create table script
-CREATE DATABASE Project;
+CREATE DATABASE NPGeek;
 
 GO
 
-USE Project;
+USE NPGeek;
 
 GO
 

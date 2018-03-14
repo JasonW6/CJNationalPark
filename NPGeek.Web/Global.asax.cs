@@ -31,6 +31,7 @@ namespace NPGeek.Web
 
             // Map Interfaces to Classes
             kernel.Bind<IParkDAL>().To<ParkSqlDAL>().WithConstructorArgument("connectionString", connectionString);
+            kernel.Bind<IWeatherDAL>().To<WeatherSqlDAL>().WithConstructorArgument("connectionString", connectionString);
 
             return kernel;
         }
