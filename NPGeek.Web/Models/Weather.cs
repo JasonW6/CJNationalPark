@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 
 namespace NPGeek.Web.Models
@@ -12,6 +13,8 @@ namespace NPGeek.Web.Models
         public int Low { get; set; }
         public int High { get; set; }
         public string Forecast { get; set; }
+
+        public string Units { get; set; }
 
         public string ForecastImageName
         {
@@ -66,5 +69,20 @@ namespace NPGeek.Web.Models
             { "sunny", "sunny.png" },
             { "thunderstorms", "thunderstorms.png" }
         };
+
+        public string GetHighWithUnits(string units)
+        {
+            return units.ToLower() == "celsius" ? ConvertFToC(High) + WebUtility.HtmlDecode(" &#8451;") : High + WebUtility.HtmlDecode(" &#8457;");
+        }
+
+        public string GetLowWithUnits(string units)
+        {
+            return units.ToLower() == "celsius" ? ConvertFToC(Low) + WebUtility.HtmlDecode(" &#8451;") : Low + WebUtility.HtmlDecode(" &#8457;");
+        }
+
+        private double ConvertFToC(int tempInF)
+        {
+            return Math.Round(((double)tempInF - 32) * 5.0 / 9.0, 2);
+        }
     }
 }

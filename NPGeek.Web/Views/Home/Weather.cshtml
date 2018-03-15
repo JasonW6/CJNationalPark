@@ -1,15 +1,43 @@
 ﻿@model List<NPGeek.Web.Models.Weather>
 
+@{ 
+    string units = Request.QueryString["units"];
+
+    if (string.IsNullOrEmpty(units))
+    {
+        units = Model[0].Units;
+    }
+}
+
+<div>
+    <form method="post" action="@Url.Action("Weather","Home")">
+        @if (units.ToLower() == "celsius")
+        {
+            <input type="radio" name="units" value="Celsius" checked="checked" />
+            <span>&#8451;</span>
+            <input type="radio" name="units" value="Fahrenheit" />
+            <span>&#8457;</span>
+        }
+        else
+        {
+            <input type="radio" name="units" value="Celsius" />
+            <span>&#8451;</span>
+            <input type="radio" name="units" value="Fahrenheit" checked="checked" />
+            <span>&#8457;</span>
+        }
+        <button>Set Units</button>
+    </form>
+</div>
+
 <div class="today-weather">
     <h1>Today</h1>
     <img src="~/Content/img/weather/@Model[0].ForecastImageName" />
     <p>
         <span>High:</span>
-        <span>@Model[0].High</span>
-        <span>&#8457;</span> <!--deg F symbol-->
+        <span>@Model[0].GetHighWithUnits(units)</span>
+
         <span>Low:</span>
-        <span>@Model[0].Low</span>
-        <span>&#8451;</span> <!--deg C symbol-->
+        <span>@Model[0].GetLowWithUnits(units)</span>
     </p>
     @foreach (var advisory in Model[0].GetAdvisories())
     {
@@ -22,11 +50,11 @@
         <img src="~/Content/img/weather/@Model[i].ForecastImageName" />
         <p>
             <span>High:</span>
-            <span>@Model[i].High</span>
-            <span>&#8457;</span> <!--deg F symbol-->
+            <span>@Model[i].GetHighWithUnits(units)</span>
+
             <span>Low:</span>
-            <span>@Model[i].Low</span>
-            <span>&#8451;</span> <!--deg C symbol-->
+            <span>@Model[i].GetLowWithUnits(units)</span>
+
         </p>
     }
 </div>

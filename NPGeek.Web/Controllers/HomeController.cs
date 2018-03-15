@@ -29,14 +29,36 @@ namespace NPGeek.Web.Controllers
         public ActionResult ParkDetail(string id)
         {
             NationalPark park = parkDAL.GetParkByParkCode(id);
-
+            
             return View("ParkDetail", park);
         }
 
         public ActionResult Weather(string id)
         {
             List<Weather> fiveDayWeather = weatherDAL.GetFiveDayWeatherByParkCode(id);
+            
+            string units = GetUnitsFromSession();
+            fiveDayWeather[0].Units = units;
+
             return PartialView("Weather", fiveDayWeather);
         }
+
+        [HttpPost]
+        public ActionResult Weather(string id, string units)
+        {
+            Session["units"] = units;
+            return RedirectToAction("ParkDetail", new { id = id, units = units });
+        }
+
+        private string GetUnitsFromSession()
+        {
+            if(string.IsNullOrEmpty(Session["units"] as string))
+            {
+                Session["units"] = "Fahrenheit";
+            }
+
+            return Session["units"] as string;
+        }
+
     }
 }
