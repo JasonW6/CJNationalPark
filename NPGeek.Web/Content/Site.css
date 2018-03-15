@@ -1,57 +1,98 @@
 ﻿
 * {
-   
 }
+
 body {
     text-align: center;
     margin: 0;
 }
-#logo{
-    width:400px;
+
+#logo {
+    width: 400px;
 }
-footer img{
-    height:100px;
+
+footer img {
+    height: 100px;
     padding: 1rem 3rem;
 }
-footer{
-    text-align: center;
 
+footer {
+    text-align: center;
 }
 
 #logobanner {
-    background-color:aliceblue;
+    background-color: rgb(133, 209, 250);
     width: 100%;
 }
+
 .container-width {
     min-width: 60rem;
     width: 60vw;
     display: inline-block;
     text-align: left;
 }
-#content{
+
+#content {
     min-height: 35rem;
-    display:inline-block;
+    display: inline-block;
     position: relative;
     margin: 1rem;
 }
+
 footer span {
     display: inline-block;
     position: relative;
     bottom: 4rem;
 }
-.buttons ul li {
+
+/*.buttons ul li {
     display: inline-block;
     border: 1px solid black;
     border-radius: 0.5rem;
     background-color: cornflowerblue;
     text-align: center;
     padding: 1rem 1rem;
-}
-    .buttons ul li a {
+}*/
+
+    /*.buttons ul li a {
         text-decoration: none;
         color: white;
-    }
-    .buttons{
-        background-color: lightcoral;
+    }*/
 
+.buttons {
+    background-color: rgb(230, 230, 230) ;
+}
+
+#button {
+    background-color: rgb(47,198,51); /* Green */
+    border: none;
+    color: white;
+    padding: .5rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: .4s;
+    cursor: pointer;
+    border-radius: .5rem;
+}
+.buttonscontainer{
+    position:relative;
+    display:inline-block;
+    left: 3rem;
+
+}
+
+#button {
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+}
+
+    #button:hover {
+        background-color: #4CAF50;
+        color: white;
     }
+

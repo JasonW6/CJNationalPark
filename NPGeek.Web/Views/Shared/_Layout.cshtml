@@ -22,12 +22,10 @@
         </div>
         <nav class="buttons">
             <div class="container-width">
-                <ul>
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Survey", "Index", "Survey")</li>
-
-
-                </ul>
+                <div class="buttonscontainer">
+                    <a href="@Url.Action("Index","Home")"><div id="button">Home</div></a>
+                    <a href="@Url.Action("Index","Survey")"><div id="button">Survey</div></a>
+                </div>
             </div>
         </nav>
         
