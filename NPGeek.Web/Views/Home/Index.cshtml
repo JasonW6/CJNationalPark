@@ -7,10 +7,12 @@
 
 @foreach (var park in Model)
 {
-    <img class="parkImage" src="~/Content/img/parks/@(park.ParkCode.ToLower()).jpg" />
+    <div class="index-park">
+        <img class="index-park-image" src="~/Content/img/parks/@(park.ParkCode.ToLower()).jpg" />
 
-    <div class="parkinfo">
-        <h2><a href="@Url.Action("ParkDetail", "Home", new { id = park.ParkCode })">@park.ParkName</a></h2>
-        <p>@park.ParkDecription</p>
+        <div class="index-park-info">
+            <h2><a href="@Url.Action("ParkDetail", "Home", new { id = park.ParkCode })">@park.ParkName</a></h2>
+            <p>@park.ParkDecription</p>
+        </div>
     </div>
 }

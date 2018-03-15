@@ -2,6 +2,8 @@
 * {
 }
 
+/* Layout Formatting */
+
 body {
     text-align: center;
     margin: 0;
@@ -45,26 +47,12 @@ footer span {
     bottom: 4rem;
 }
 
-/*.buttons ul li {
-    display: inline-block;
-    border: 1px solid black;
-    border-radius: 0.5rem;
-    background-color: cornflowerblue;
-    text-align: center;
-    padding: 1rem 1rem;
-}*/
-
-    /*.buttons ul li a {
-        text-decoration: none;
-        color: white;
-    }*/
-
 .buttons {
     background-color: rgb(230, 230, 230) ;
 }
 
 #button {
-    background-color: rgb(47,198,51); /* Green */
+    background-color: rgb(47,198,51);
     border: none;
     color: white;
     padding: .5rem 1rem;
@@ -73,7 +61,7 @@ footer span {
     display: inline-block;
     font-size: 16px;
     margin: 4px 2px;
-    -webkit-transition-duration: 0.4s; /* Safari */
+    -webkit-transition-duration: 0.4s;
     transition-duration: .4s;
     cursor: pointer;
     border-radius: .5rem;
@@ -96,3 +84,24 @@ footer span {
         color: white;
     }
 
+/* Home Index Formatting */
+.index-park-image {
+    display: inline-block;
+    width: 30rem;
+    padding: 0;
+    margin: 0;
+}
+
+.index-park-info {
+    display: inline-block;
+    width: calc(100% - 32rem);
+    padding: 0;
+    margin: 0;
+    vertical-align: top;
+}
+
+.index-park {
+    position: relative;
+    width: 100%;
+    white-space:normal;
+}
