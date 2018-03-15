@@ -1,0 +1,57 @@
+﻿
+* {
+   
+}
+body {
+    text-align: center;
+    margin: 0;
+}
+#logo{
+    width:400px;
+}
+footer img{
+    height:100px;
+    padding: 1rem 3rem;
+}
+footer{
+    text-align: center;
+
+}
+
+#logobanner {
+    background-color:aliceblue;
+    width: 100%;
+}
+.container-width {
+    min-width: 60rem;
+    width: 60vw;
+    display: inline-block;
+    text-align: left;
+}
+#content{
+    min-height: 35rem;
+    display:inline-block;
+    position: relative;
+    margin: 1rem;
+}
+footer span {
+    display: inline-block;
+    position: relative;
+    bottom: 4rem;
+}
+.buttons ul li {
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    background-color: cornflowerblue;
+    text-align: center;
+    padding: 1rem 1rem;
+}
+    .buttons ul li a {
+        text-decoration: none;
+        color: white;
+    }
+    .buttons{
+        background-color: lightcoral;
+
+    }

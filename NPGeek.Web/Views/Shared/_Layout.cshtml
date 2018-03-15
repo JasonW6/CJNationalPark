@@ -9,34 +9,42 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    <link href="~/Content/Site.css" rel="stylesheet" />
 </head>
 
 <body>
     <header>
-        <div>
-            <img id="logo" src="~/Content/img/logo.png" />
+        <div id="logobanner">
+            <div class="container-width">
 
+                <img id="logo" src="~/Content/img/logo.png" />
+            </div>
         </div>
-        <div>
-            <ul>
-                <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                <li>@Html.ActionLink("Survey", "Index", "Survey")</li>
+        <nav class="buttons">
+            <div class="container-width">
+                <ul>
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Survey", "Index", "Survey")</li>
 
 
-            </ul>
-
-        </div>
+                </ul>
+            </div>
+        </nav>
+        
 
     </header>
 
-    @RenderBody()
+    <div class="container-width">
+        <div id="content">
+            @RenderBody()
+        </div>
+        <footer>
+            <img src="~/Content/img/geek.png" />
+            <span>&copy; @DateTime.Now.Year Craig and Jason &lt;TEAM 5&gt;</span>
+            <img src="~/Content/img/scenery.png" />
 
-    <footer>
-        <img src="~/Content/img/geek.png" />
-        <span>&copy; @DateTime.Now.Year Craig and Jason &lt;TEAM 5&gt;</span>
-        <img src="~/Content/img/scenery.png" />
-
-    </footer>
+        </footer>
+    </div>
 </body>
 
 </html>
