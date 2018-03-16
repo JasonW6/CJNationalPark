@@ -105,3 +105,14 @@ footer span {
     width: 100%;
     white-space:normal;
 }
+
+.parkinfo table tr th {
+    text-align: right;
+    padding-left: 6rem;
+}
+
+.parkinfo table {
+    margin: 2rem 0;
+    background-color: rgb(230, 230, 230);
+    padding-right: 6rem;
+}

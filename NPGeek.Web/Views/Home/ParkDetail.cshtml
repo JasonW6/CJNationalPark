@@ -5,57 +5,52 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>ParkDetail</h2>
+<div class="index-park">
+    <img class="index-park-image" src="~/Content/img/parks/@(Model.ParkCode.ToLower()).jpg" />
 
-<img class="parkImage" src="~/Content/img/parks/@(Model.ParkCode.ToLower()).jpg" />
+    <div class="index-park-info">
+        <h2>@Model.ParkName</h2>
+        <p>@Model.ParkDecription</p>
+        <p>
+            <em>@Model.InspirationalQuote</em> -
+            @Model.InspirationalQuoteSource
+        </p>
+    </div>
+</div>
 
 <div class="parkinfo">
-    <h2>@Model.ParkName</h2>
-    <p>@Model.ParkDecription</p>
-    <p>
-        <span>Acreage:</span>
-        <span>@Model.Acreage</span>
-    </p>
-    <p>
-        <span>Annual Visitor Count:</span>
-        <span>@Model.AnnualVisitorCount</span>
-    </p>
-    <p>
-        <span>Climate:</span>
-        <span>@Model.Climate</span>
-    </p>
-    <p>
-        <span>Elevation:</span>
-        <span>@Model.Elevation</span>
-    </p>
-    <p>
-        <span>Entry Fee:</span>
-        <span>@Model.EntryFee</span>
-    </p>
-    <p>
-        @Model.InspirationalQuote -
-        @Model.InspirationalQuoteSource
-    </p>
-    <p>
-        <span>Miles of Trail:</span>
-        <span>@Model.MilesOfTrail</span>
-    </p>
-    <p>
-        <span>Number of Animal Species:</span>
-        <span>@Model.NumberOfAnimalSpecies</span>
-    </p>
-    <p>
-        <span>Number of Campsites:</span>
-        <span>@Model.NumberOfCampsites</span>
-    </p>
-    <p>
-        <span>State:</span>
-        <span>@Model.State</span>
-    </p>
-    <p>
-        <span>Year Founded:</span>
-        <span>@Model.YearFounded</span>
-    </p>
+    <table>
+        <tr>
+            <th><span>Entry Fee:</span></th>
+            <td><span>@Model.EntryFee.ToString("C")</span></td>
+            <th><span>Year Founded:</span></th>
+            <td><span>@Model.YearFounded</span></td>
+        </tr>
+        <tr>
+            <th><span>Number of Campsites:</span></th>
+            <td><span>@Model.NumberOfCampsites</span></td>
+            <th><span>Climate:</span></th>
+            <td><span>@Model.Climate</span></td>
+        </tr>
+        <tr>
+            <th><span>Miles of Trail:</span></th>
+            <td><span>@Model.MilesOfTrail</span></td>
+            <th><span>Acreage:</span></th>
+            <td><span>@Model.Acreage</span></td>
+        </tr>
+        <tr>
+            <th><span>Elevation:</span></th>
+            <td><span>@Model.Elevation</span></td>
+            <th><span>Annual Visitor Count:</span></th>
+            <td><span>@Model.AnnualVisitorCount</span></td>
+        </tr>
+        <tr>
+            <th><span>State:</span></th>
+            <td><span>@Model.State</span></td>
+            <th><span>Number of Animal Species:</span></th>
+            <td><span>@Model.NumberOfAnimalSpecies</span></td>
+        </tr>
+    </table>
 </div>
 
 <div>
