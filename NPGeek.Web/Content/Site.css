@@ -225,3 +225,9 @@ footer span {
     #survey-results th{
         font-size: 1.7rem;
     }
+    /*survey-form page*/
+.survey-item span:first-child {
+    display: inline-block;
+    width: 10rem;
+
+}
