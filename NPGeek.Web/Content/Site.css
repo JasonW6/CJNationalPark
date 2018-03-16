@@ -48,7 +48,7 @@ footer span {
 }
 
 .buttons {
-    background-color: rgb(230, 230, 230) ;
+    background-color: rgb(230, 230, 230);
 }
 
 #button {
@@ -66,11 +66,11 @@ footer span {
     cursor: pointer;
     border-radius: .5rem;
 }
-.buttonscontainer{
-    position:relative;
-    display:inline-block;
-    left: 3rem;
 
+.buttonscontainer {
+    position: relative;
+    display: inline-block;
+    left: 3rem;
 }
 
 #button {
@@ -90,6 +90,8 @@ footer span {
     width: 30rem;
     padding: 0;
     margin: 0;
+    border: 2px solid black;
+    border-radius: 1rem;
 }
 
 .index-park-info {
@@ -103,16 +105,100 @@ footer span {
 .index-park {
     position: relative;
     width: 100%;
-    white-space:normal;
+    white-space: normal;
 }
 
-.parkinfo table tr th {
-    text-align: right;
-    padding-left: 6rem;
+.parkinfo {
+    text-align: center;
 }
 
-.parkinfo table {
-    margin: 2rem 0;
-    background-color: rgb(230, 230, 230);
-    padding-right: 6rem;
+    .parkinfo div {
+        display: inline-block;
+    }
+
+    .parkinfo table tr th {
+        text-align: right;
+        padding-left: 6rem;
+    }
+
+    .parkinfo table tr td {
+        text-align: left;
+    }
+
+    .parkinfo table {
+        margin: 2rem 0;
+        background-color: rgb(230, 230, 230);
+        padding-right: 6rem;
+    }
+
+
+.today-weather {
+    display: inline-block;
+}
+
+    .today-weather table tr th {
+        text-align: right;
+        padding-bottom: 0.5rem;
+    }
+
+    .today-weather table tr td {
+        text-align: left;
+        padding-bottom: 0.5rem;
+    }
+
+    .today-weather table tr h1 {
+        text-align: center;
+        margin: 0;
+        margin-bottom: 0.5rem;
+        font-family: Verdana;
+    }
+
+    .today-weather table tr img {
+        width: 15rem;
+        border: 2px solid black;
+        border-radius: 1rem;
+    }
+
+
+.four-day-weather {
+    display: inline-block;
+}
+
+.daily-weather {
+    display: inline-block;
+    padding-bottom: 3rem;
+}
+
+    .daily-weather table tr img {
+        width: 9rem;
+        border: 2px solid black;
+        border-radius: 0.5rem;
+    }
+
+    .daily-weather table tr th {
+        text-align: right;
+    }
+
+    .daily-weather table tr td {
+        text-align: left;
+    }
+
+    .daily-weather table tr h2 {
+        text-align: center;
+        margin: 0;
+        margin-bottom: 0.5rem;
+        font-family: Verdana;
+    }
+
+#unit-choice {
+    text-align: center;
+    padding: 3rem;
+}
+
+    #unit-choice form {
+        display: inline-block;
+    }
+
+#weather-block {
+    text-align: center;
 }

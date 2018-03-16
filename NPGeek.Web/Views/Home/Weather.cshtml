@@ -1,6 +1,6 @@
 ﻿@model List<NPGeek.Web.Models.Weather>
 
-@{ 
+@{
     string units = Request.QueryString["units"];
 
     if (string.IsNullOrEmpty(units))
@@ -9,7 +9,52 @@
     }
 }
 
-<div>
+<div id="weather-block">
+    <div class="today-weather">
+        <table>
+            <tr>
+                <td colspan="4"><h1>Today</h1></td>
+            </tr>
+            <tr>
+                <td colspan="4"><img src="~/Content/img/weather/@Model[0].ForecastImageName" /></td>
+            </tr>
+            <tr>
+                <th><span>High:</span></th>
+                <td><span>@Model[0].GetHighWithUnits(units)</span></td>
+                <th><span>Low:</span></th>
+                <td><span>@Model[0].GetLowWithUnits(units)</span></td>
+            </tr>
+            @foreach (var advisory in Model[0].GetAdvisories())
+            {
+                <tr>
+                    <td colspan="4">@advisory</td>
+                </tr>
+            }
+        </table>
+    </div>
+
+    <div class="four-day-weather">
+        @for (int i = 1; i < Model.Count; i++)
+        {
+            <div class="daily-weather">
+                <table>
+                    <tr><td colspan="2"><h2>Day @(i + 1)</h2></td></tr>
+                    <tr><td colspan="2"><img src="~/Content/img/weather/@Model[i].ForecastImageName" /></td></tr>
+                    <tr>
+                        <th><span>High:</span></th>
+                        <td><span>@Model[i].GetHighWithUnits(units)</span></td>
+                    </tr>
+                    <tr>
+                        <th><span>Low:</span></th>
+                        <td><span>@Model[i].GetLowWithUnits(units)</span></td>
+                    </tr>
+                </table>
+            </div>
+        }
+    </div>
+</div>
+
+<div id="unit-choice">
     <form method="post" action="@Url.Action("Weather","Home")">
         @if (units.ToLower() == "celsius")
         {
@@ -27,34 +72,4 @@
         }
         <button>Set Units</button>
     </form>
-</div>
-
-<div class="today-weather">
-    <h1>Today</h1>
-    <img src="~/Content/img/weather/@Model[0].ForecastImageName" />
-    <p>
-        <span>High:</span>
-        <span>@Model[0].GetHighWithUnits(units)</span>
-
-        <span>Low:</span>
-        <span>@Model[0].GetLowWithUnits(units)</span>
-    </p>
-    @foreach (var advisory in Model[0].GetAdvisories())
-    {
-        <p>@advisory</p>
-    }
-</div>
-<div class="four-day-weather">
-    @for (int i = 1; i < Model.Count; i++)
-    {
-        <img src="~/Content/img/weather/@Model[i].ForecastImageName" />
-        <p>
-            <span>High:</span>
-            <span>@Model[i].GetHighWithUnits(units)</span>
-
-            <span>Low:</span>
-            <span>@Model[i].GetLowWithUnits(units)</span>
-
-        </p>
-    }
 </div>
