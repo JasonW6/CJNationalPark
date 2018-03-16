@@ -13,6 +13,9 @@ namespace NPGeek.Web.Models
         [Required(ErrorMessage = "Please select a park, Josh.")]
         public string ParkCode { get; set; }
 
+        
+        [DataType(DataType.EmailAddress, ErrorMessage ="Please enter a valid email, Josh.")]
+        [EmailAddress]
         [Required(ErrorMessage = "Please enter your email, Josh.")]
         public string EmailAddress { get; set; }
 

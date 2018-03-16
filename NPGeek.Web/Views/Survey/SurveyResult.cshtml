@@ -3,27 +3,28 @@
     ViewBag.Title = "Survey Result";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<table>
-    <tr>
-        <th></th>
-        <th>Park</th>
-        <th>Votes</th>
-    </tr>
-
-    @foreach (var result in Model)
-    {
+<div id="survey-results">
+    <table>
         <tr>
-            <td>
-                <img class="parkImage" src="~/Content/img/parks/@(result.ParkCode.ToLower()).jpg" />
-            </td>
-            <td>
-                <span>@result.ParkName</span>
-            </td>
-            <td>
-                <span>@result.VoteCount</span>
-            </td>
+            <th></th>
+            <th>Park</th>
+            <th>Votes</th>
         </tr>
-    }
 
-</table>
+        @foreach (var result in Model)
+        {
+            <tr>
+                <th>
+                    <img class="index-park-image" src="~/Content/img/parks/@(result.ParkCode.ToLower()).jpg" />
+                </th>
+                <td>
+                    <span>@result.ParkName</span>
+                </td>
+                <td>
+                    <span>@result.VoteCount</span>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

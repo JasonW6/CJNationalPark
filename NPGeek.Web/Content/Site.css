@@ -202,3 +202,26 @@ footer span {
 #weather-block {
     text-align: center;
 }
+
+/*Survey-detail page*/
+#survey-results{
+    text-align: center;
+    
+}
+#survey-results img{
+    width: 15rem;
+}
+#survey-results td{
+    padding: 0 5rem;
+}
+    #survey-results td:nth-child(odd) {
+       font-size: 2rem;
+       font-style: italic;
+       font-weight: bold;
+    }
+    #survey-results td:nth-child(even){
+        font-size: 1.7rem;
+    }
+    #survey-results th{
+        font-size: 1.7rem;
+    }

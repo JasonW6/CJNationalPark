@@ -28,7 +28,7 @@
         <span>Your Activity Level</span>
         @Html.RadioButtonFor(r => r.ActivityLevel, "inactive")<span>Inactive</span>
         @Html.RadioButtonFor(r => r.ActivityLevel, "sedentary")<span>Sedentary</span>
-        @Html.RadioButtonFor(r => r.ActivityLevel, "active")<span>Active</span>
+        @Html.RadioButtonFor(r => r.ActivityLevel, "active", new { @checked = "checked"})<span>Active</span>
         @Html.RadioButtonFor(r => r.ActivityLevel, "hyperactive")<span>Hyperactive</span>
         @Html.ValidationMessageFor(d => d.ActivityLevel)
     </p>
